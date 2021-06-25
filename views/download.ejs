@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Download</title>
+</head>
+
+<body>
+   <section class="download">
+       <% if(locals.error) {%>
+        <h4><%= locals.error %></h4>
+        <% } else { %>
+        <h2>Your file is ready to download</h2>
+        <p>Link expires in 24 hours</p>
+        <div class="download_meta">
+            <h4><%= fileName %></h4>
+            <small><%= parseInt(fileSize/1000) %>KB</small>
+        </div>
+        <div>
+        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+            <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" /></svg>
+                <a href="<%=downloadLink %>"></a>
+                <span>Download File</span>
+            </button>
+            </div>
+            <% } %>
+        </section>
+</body>
+
+</html>
